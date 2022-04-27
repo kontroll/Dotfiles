@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doublecmd>
+  <History>
+    <CommandLine>
+      <Item>cd .local</Item>
+    </CommandLine>
+    <FileMask>
+      <Item>filter</Item>
+    </FileMask>
+    <SearchText>
+      <Item Tag="0">.scripts</Item>
+    </SearchText>
+    <SearchTextPath/>
+    <ReplaceText/>
+    <ReplaceTextPath/>
+    <CreateDirectories>
+      <Item>Nextcloud</Item>
+      <Item>Screenshots</Item>
+      <Item>Random</Item>
+      <Item>Issues</Item>
+    </CreateDirectories>
+    <RenameNameMask/>
+    <RenameExtMask/>
+    <SearchDirectories>
+      <Item>/</Item>
+    </SearchDirectories>
+    <SearchExcludeFiles/>
+    <SearchExcludeDirectories/>
+  </History>
+</doublecmd>
