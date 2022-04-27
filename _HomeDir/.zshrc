@@ -191,7 +191,7 @@ cd() {
 }
 
 k() {
-#   [[ -z $1 ]] && echo "No path alias specified. Usage: k ALIAS" && ls ~/.scripts/paths/ && return 1
+    [[ $1 == "add" ]] && echo $PWD > ~/.scripts/paths/$2 && return 0
     [[ -z $1 ]] && cd "$(cat ~/.scripts/paths/$(ls ~/.scripts/paths/ | fzf))" && return 0
     [[ ! -f ~/.scripts/paths/$1 ]] && echo "No such path alias." && return 1
 
