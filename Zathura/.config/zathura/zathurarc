@@ -1,0 +1,10 @@
+set selection-clipboard clipboard
+set window-title-basename true
+# set recolor "true"
+set recolor-lightcolor "#222222" #00
+set recolor-darkcolor "#CCCCCC" #06
+# set recolor-reverse-video "true"
+# set recolor-keephue "true"
+
+unmap f
+map f toggle_fullscreen
