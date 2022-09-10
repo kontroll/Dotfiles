@@ -99,17 +99,12 @@ alias bannerp="toilet -f pagga"
 #alias font="fontpreview --preview-text abcdefghijklmnopqrstuvwxyzåäö ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ 0123456789" #.:;\(*!?\'/\'\"£$€&\)'"
 #alias pdf="open \"$(locate '/home/kontroll' | grep '\.pdf$' | fzf)\"'"
 alias yt="ytfzf -t"
+alias dcom="docker-compose"
 
 # Replace some common utilities with beefier cousins
-#alias ls="lsd --group-dirs first "
 alias ls="exa --group-directories-first"
 alias l="ls -l"
 alias ll="ls -la"
-# alias cat="bat"
-# alias cd="builtin cd $@ && ls"
-alias pcp="rsync -ah --progress"
-
-alias rgt="rg -g '*.{org,txt}'"
 
 # Sane "defaults" for commands
 alias df="df -h"
@@ -117,6 +112,11 @@ alias mv="mv -iv"
 alias cp="cp -riv"
 alias mkdir="mkdir -vp"
 alias mg="mg -n"
+alias pcp="rsync -ah --progress"
+alias rgt="rg -g '*.{org,txt}'"
+
+# Lazy times
+alias y="yay"
 
 
 
@@ -170,6 +170,7 @@ fancy-ctrl-z() {
 }
 zle -N fancy-ctrl-z
 bindkey '^z'    fancy-ctrl-z
+bindkey -s '^X^K' ' tput reset\n'
 # bindkey -s '^\b'   " cd ..\n"
 
 function set_win_title(){
@@ -287,3 +288,9 @@ export FZF_COMPLETION_TRIGGER=',,'
 
 
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/kontroll/random/temp/Google/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kontroll/random/temp/Google/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/kontroll/random/temp/Google/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kontroll/random/temp/Google/google-cloud-sdk/completion.zsh.inc'; fi
