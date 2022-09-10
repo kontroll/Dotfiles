@@ -2,6 +2,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $mod2 Mod3
 set $exe exec --no-startup-id
 set $i3run exec --no-startup-id i3run
 $exe i3var set focus_wrap workspace
@@ -64,6 +65,7 @@ floating_modifier $mod
 
 # terminal application bindings
 bindsym $mod+Return $exe $terminal
+# MOD3 (AKA SUPER_R) DOES NOT EXIST ON THE KEYCHRON K8 # bindsym $mod2+Return $exe gnome-terminal
 bindsym $mod+Shift+Return $exe st
 bindsym $mod+Shift+n $i3run --title Newsboat -s -e '$terminal --title Newsboat -e newsboat'
 #bindsym $mod+plus $i3run -i kREPLTerm -e '$terminal -n kREPLTerm -e python' # ST?
@@ -221,6 +223,18 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
+# switch to workspace set 2
+bindsym $mod+Ctrl+1 workspace 11
+bindsym $mod+Ctrl+2 workspace 12
+bindsym $mod+Ctrl+3 workspace 13
+bindsym $mod+Ctrl+4 workspace 14
+bindsym $mod+Ctrl+5 workspace 15
+bindsym $mod+Ctrl+6 workspace 16
+bindsym $mod+Ctrl+7 workspace 17
+bindsym $mod+Ctrl+8 workspace 18
+#bindsym $mod+Ctrl+9 workspace 19
+#bindsym $mod+Ctrl+0 workspace 20
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
