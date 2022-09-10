@@ -111,7 +111,7 @@ bindsym $mod+Ctrl+9 move workspace to output left
 
 
 # Application shortcuts
-bindsym $mod+e $i3run -s --nohide -c Doublecmd -e '$HOME/doublecmd-gtk-1.0.3-1.1.Build1.1.glibc2.10-x86_64.AppImage'
+bindsym $mod+e $i3run -s --nohide -c Doublecmd -e '$HOME/DoubleCmd.AppImage'
 bindcode 107 mode "$scrot"
 #bindsym $mod+m $exe termite -e neomutt
 #bindsym $mod+m $i3run -t neomutt -e 'termite -e neomutt'
