@@ -358,7 +358,7 @@ $exe ~/.scripts/launch_polybar
 #exe feh --bg-fill ~/Pictures/UcCDAaq.jpg
 #alter to disable touch screen @ X220T --- actually, replace this with the proper device name for portability.
 #exe xinput disable 10
-$exe picom -b
+#$exe picom -b
 $exe imwheel -b 45
 
 $exe i3-msg 'workspace 1; $exe pavucontrol'
