@@ -367,6 +367,7 @@ $exe trackpad
 $exe trackpointacceleration -0.75
 $exe xinput --set-prop 'Glorious Model O' 'libinput Accel Speed' -0.64 # Closely corresponds to the mouse speed set in Windows.
 $exe xinput --set-prop 'Glorious Model O Wireless' 'libinput Accel Speed' -0.64 # Closely corresponds to the mouse speed set in Windows.
+$exe xinput --set-prop 'Wings Tech Xtrfy MZ1' 'libinput Accel Speed' -0.40 # Xtrfy has a higher DPS, but uses a lower negative factor? Approx. Model O feel.
 $exe mousetrap -t 8
 #exe ~/.scripts/oimap
 #$exe xset r rate 300 30
