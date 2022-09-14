@@ -10,6 +10,9 @@ fi
 HISTSIZE=50000
 SAVEHIST=10000
 
+autoload -U compinit && compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
 ## History command configuration
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
@@ -22,7 +25,6 @@ setopt share_history          # share command history data
 # Things stolen from oh-my-zsh
 source $HOME/.zsh_termsupport.zsh
 source $HOME/.zsh_key-bindings.zsh
-source $HOME/.zsh_completion.zsh
 source $HOME/.aliases
 
 # # Legacy oh-my-zsh settings; remove if move to p10k is confirmed permanent
