@@ -6,3 +6,6 @@ Use Stow to create symlinks for a specific directory (usually a single applicati
 
 Or create symlinks for all directories:  
 `$ stow */`
+
+`_HomeDir` now relies on [powerlevel10k](https://github.com/romkatv/powerlevel10k). Install this and the recommended font.
+
