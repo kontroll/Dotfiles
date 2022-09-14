@@ -37,6 +37,7 @@ alias rgt="rg -g '*.{org,txt}'"
 
 # Lazy times
 alias y="yay"
+alias g="git"
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
