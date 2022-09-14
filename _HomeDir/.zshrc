@@ -22,6 +22,8 @@ setopt share_history          # share command history data
 # Things stolen from oh-my-zsh
 source $HOME/.zsh_termsupport.zsh
 source $HOME/.zsh_key-bindings.zsh
+source $HOME/.zsh_completion.zsh
+source $HOME/.aliases
 
 # # Legacy oh-my-zsh settings; remove if move to p10k is confirmed permanent
 # export ZSH=/home/kontroll/.oh-my-zsh
@@ -30,10 +32,6 @@ source $HOME/.zsh_key-bindings.zsh
 
 export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
 export PERL_DESTRUCT_LEVEL=2
-
-source $HOME/.aliases
-
-
 export PATH=$HOME/.cargo/bin:$HOME/.scripts:$HOME/go/bin:$PATH
 export GOPATH=$HOME/go
 export FZF_COMPLETION_TRIGGER=',,'
