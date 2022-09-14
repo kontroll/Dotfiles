@@ -37,6 +37,10 @@ alias rgt="rg -g '*.{org,txt}'"
 
 # Lazy times
 alias y="yay"
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
 
 # Experimental
 alias cl=". cl"
@@ -47,6 +51,10 @@ alias cr=". cr"
 alias start="systemctl start"
 alias stop="systemctl stop"
 alias status="systemctl status"
+
+bindkey '^z'    fancy-ctrl-z
+bindkey -s '^X^K' ' tput reset\n'
+# bindkey -s '^\b'   " cd ..\n"
 
 ### ARCHIVE EXTRACTION
 # usage: ex <file>
@@ -75,14 +83,6 @@ ex ()
   fi
 }
 
-pdf() {
-    #[[ ! -z $1 ]] && $_knt_fzfQ="-q \"$1\""
-    local target_file
-    target_file="$(locate '/home/kontroll' | grep '\.pdf$' | fzf --reverse $([[ ! -z $1 ]] && echo -q "$1"))"
-    [[ ! -z $target_file ]] && open $target_file & bg
-    #open "$(locate '/home/kontroll' | grep '\.pdf$' | fzf $([[ ! -z $1 ]] && echo -q "$1"))"
-}
-
 weather(){
   curl -s "wttr.in/$1" | head -n 37
 }
@@ -97,16 +97,7 @@ fancy-ctrl-z() {
     fi
 }
 zle -N fancy-ctrl-z
-bindkey '^z'    fancy-ctrl-z
-bindkey -s '^X^K' ' tput reset\n'
-# bindkey -s '^\b'   " cd ..\n"
 
-function set_win_title(){
-    echo -ne "\033]0; schweinehund $PWD \007"
-    }
-
-############################
-# File system movement stuff
 cd() {
     if [[ $1 = - ]]; then
 	builtin cd "$OLDPWD" || return 1
@@ -152,7 +143,6 @@ mcd ()
     mkdir -p -- "$1" &&
       cd -P -- "$1"
 }
-
 
 pcat(){
     which $1 | xargs cat
