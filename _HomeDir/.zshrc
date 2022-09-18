@@ -26,6 +26,7 @@ setopt interactivecomments    # bash style comments in the command line
 # Things stolen from oh-my-zsh
 source $HOME/.zsh_termsupport.zsh
 source $HOME/.zsh_key-bindings.zsh
+source $HOME/.zsh_completion.zsh
 source $HOME/.aliases
 
 # # Legacy oh-my-zsh settings; remove if move to p10k is confirmed permanent
