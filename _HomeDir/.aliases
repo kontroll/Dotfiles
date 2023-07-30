@@ -13,6 +13,7 @@ alias open="xdg-open"
 alias orphans="sudo pacman -Qtdq"
 alias tomato="tty-clock-tomato"
 alias pomato="python $HOME/Documents/Code/Pomato/pomato.py"
+alias kraka="python $HOME/Dev/kontroll/Kraka/main.py"
 alias qc="python ~/quickcell/src/quickcell.py"
 alias banner="toilet -f smmono12"
 alias bannerp="toilet -f pagga"
@@ -20,6 +21,9 @@ alias bannerp="toilet -f pagga"
 #alias pdf="open \"$(locate '/home/kontroll' | grep '\.pdf$' | fzf)\"'"
 alias yt="ytfzf -t"
 alias dcom="docker-compose"
+alias yp="yay -Slq | fzf -m --preview 'cat (yay -Si {1} | psub) (yay -Fl {1} | awk \"{print \$2}\" | psub)' | xargs -ro yay -S"
+alias pp="paru -Slq | fzf -m --preview 'cat (paru -Si {1} | psub) (paru -Fl {1} | awk \"{print \$2}\" | psub)' | xargs -ro paru -S"
+alias py="python3"
 
 # Replace some common utilities with beefier cousins
 alias ls="exa --group-directories-first"
@@ -36,7 +40,7 @@ alias pcp="rsync -ah --progress"
 alias rgt="rg -g '*.{org,txt}'"
 
 # Lazy times
-alias y="yay"
+alias y="paru"
 alias g="git"
 alias -g ...='../..'
 alias -g ....='../../..'
@@ -44,8 +48,13 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 
 # Experimental
-alias cl=". cl"
-alias cr=". cr"
+#alias cl=". cl"
+#alias cr=". cr"
+
+# Rust / Cargo
+alias cr="cargo run"
+alias cb="cargo build"
+alias ct="cargo test"
 
 ############################
 # systemctl aliases
