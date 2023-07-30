@@ -1,17 +1,9 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+export EDITOR=micro
 
 ## History file configuration
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
 HISTSIZE=50000
 SAVEHIST=10000
-
-autoload -U compinit && compinit
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 ## History command configuration
 setopt extended_history       # record timestamp of command in HISTFILE
@@ -23,35 +15,22 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 setopt interactivecomments    # bash style comments in the command line
 
-# Things stolen from oh-my-zsh
-source $HOME/.zsh_termsupport.zsh
-source $HOME/.zsh_key-bindings.zsh
-source $HOME/.zsh_completion.zsh
-source $HOME/.aliases
-
-# # Legacy oh-my-zsh settings; remove if move to p10k is confirmed permanent
-# export ZSH=/home/kontroll/.oh-my-zsh
-# ZSH_THEME="agnoster"
-# source $ZSH/oh-my-zsh.sh
-
-export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
-export PERL_DESTRUCT_LEVEL=2
-export PATH=$HOME/.cargo/bin:$HOME/.scripts:$HOME/go/bin:$PATH
+# Path stuff
+ZIM_HOME=~/.zim
+export PATH=$HOME/.config/emacs/bin:$HOME/.cargo/bin:$HOME/.scripts:$HOME/go/bin:$PATH
 export GOPATH=$HOME/go
-export FZF_COMPLETION_TRIGGER=',,'
 
-# Just for some flair, let's add a few colored boxes to new terminals.
-# $HOME/.scripts/color
-# ./.scripts/Color-Scripts/$(ls .scripts/Color-Scripts/ | shuf -n 1)
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+fi
 
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/kontroll/random/temp/Google/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kontroll/random/temp/Google/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/kontroll/random/temp/Google/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kontroll/random/temp/Google/google-cloud-sdk/completion.zsh.inc'; fi
-
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+source ~/.aliases 
