@@ -6,5 +6,8 @@ set recolor-darkcolor "#CCCCCC" #06
 # set recolor-reverse-video "true"
 # set recolor-keephue "true"
 
+# ???????
+set sandbox none
+
 unmap f
 map f toggle_fullscreen
