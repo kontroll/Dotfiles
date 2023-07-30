@@ -40,14 +40,12 @@ for_window [class="Vivaldi-stable" title="Vivaldi Settings: General - Vivaldi"] 
 assign [class="Emacs"] 3
 assign [class="Snes9x-gtk"] 4
 assign [title="aerc"] 9
-#assign [class="heroesofthestorm_x64.exe"] 4
-#assign [class="Wine" title="Heroes of the Storm"] 4
-#for_window [class="discord"] move to workspace 1
 for_window [class="Wine" title="Heroes of the Storm"] move to workspace 4 # Hmmmmmmm
 for_window [class="heroesofthestorm_x64.exe"] move to workspace 4
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="Calculator" title="Calculator"] floating enable
 for_window [class="Galculator" title="galculator"] floating enable
+for_window [class="SpeedCrunch" title="SpeedCrunch"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="QjackCtl"] floating enable
 # Double Commander
@@ -117,7 +115,7 @@ bindcode 107 mode "$scrot"
 #bindsym $mod+m $i3run -t neomutt -e 'termite -e neomutt'
 #bindsym $mod+m $i3run -t aerc -e 'termite -e aerc'
 bindsym $mod+n $i3run --nohide -c Emacs -e 'emacs'
-bindsym $mod+plus $i3run -c Galculator -t galculator -e galculator # liri-calculator
+bindsym $mod+plus $i3run -s -c SpeedCrunch -t SpeedCrunch -e 'speedcrunch'
 #bindsym $mod+F11 $exe pkill xdotool
 #bindsym $mod+F12 $exe xdotool click --repeat 999999999 --delay 12 1
 
@@ -199,18 +197,18 @@ bindsym $mod+Shift+l $exe i3lock-fancy-rapid 6 pixel
 bindsym $mod+r mode "resize"
 
 #Super+F-keys
-bindsym $mod+F1  $exe ~/.scripts/scriptrunner f1
-bindsym $mod+F2  $exe ~/.scripts/scriptrunner f2
-bindsym $mod+F3  $exe ~/.scripts/scriptrunner f3
-bindsym $mod+F4  $exe ~/.scripts/scriptrunner f4
-bindsym $mod+F5  $exe ~/.scripts/scriptrunner f5
-bindsym $mod+F6  $exe ~/.scripts/scriptrunner f6
-bindsym $mod+F7  $exe ~/.scripts/scriptrunner f7
-bindsym $mod+F8  $exe ~/.scripts/scriptrunner f8
-bindsym $mod+F9  $exe ~/.scripts/scriptrunner f9
-bindsym $mod+F10 $exe ~/.scripts/scriptrunner f10
-bindsym $mod+F11 $exe ~/.scripts/scriptrunner f11
-bindsym $mod+F12 $exe ~/.scripts/scriptrunner f12
+# bindsym $mod+F1  $exe ~/.scripts/scriptrunner f1
+# bindsym $mod+F2  $exe ~/.scripts/scriptrunner f2
+# bindsym $mod+F3  $exe ~/.scripts/scriptrunner f3
+# bindsym $mod+F4  $exe ~/.scripts/scriptrunner f4
+# bindsym $mod+F5  $exe ~/.scripts/scriptrunner f5
+# bindsym $mod+F6  $exe ~/.scripts/scriptrunner f6
+# bindsym $mod+F7  $exe ~/.scripts/scriptrunner f7
+# bindsym $mod+F8  $exe ~/.scripts/scriptrunner f8
+# bindsym $mod+F9  $exe ~/.scripts/scriptrunner f9
+# bindsym $mod+F10 $exe ~/.scripts/scriptrunner f10
+# bindsym $mod+F11 $exe ~/.scripts/scriptrunner f11
+# bindsym $mod+F12 $exe ~/.scripts/scriptrunner f12
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -354,20 +352,22 @@ workspace_auto_back_and_forth no
 
 # Automatic startup
 $exe ~/.scripts/launch_polybar
-# $exe ~/.scripts/randomwallpaper
+$exe ~/.scripts/randomwallpaper
 #exe feh --bg-fill ~/Pictures/UcCDAaq.jpg
 #alter to disable touch screen @ X220T --- actually, replace this with the proper device name for portability.
 #exe xinput disable 10
 #$exe picom -b
-$exe imwheel -b 45
+$exe imwheel -f -b 45
 
 $exe i3-msg 'workspace 1; $exe pavucontrol'
+$exe i3-msg 'workspace 1; $exe easyeffects'
 #exe xinput disable "SynPS/2 Synaptics TouchPad"
 $exe trackpad
 $exe trackpointacceleration -0.75
 $exe xinput --set-prop 'Glorious Model O' 'libinput Accel Speed' -0.64 # Closely corresponds to the mouse speed set in Windows.
 $exe xinput --set-prop 'Glorious Model O Wireless' 'libinput Accel Speed' -0.64 # Closely corresponds to the mouse speed set in Windows.
-$exe xinput --set-prop 'Wings Tech Xtrfy MZ1' 'libinput Accel Speed' -0.40 # Xtrfy has a higher DPS, but uses a lower negative factor? Approx. Model O feel.
+$exe xinput --set-prop 'Wings Tech Xtrfy MZ1' 'libinput Accel Speed' -0.40 # Xtrfy has a lower DPI (1600). Approximates the Model O feel.
+$exe xinput --set-prop 'Xtrfy Xtrfy M8W receiver' 'libinput Accel Speed' -0.90
 $exe mousetrap -t 8
 #exe ~/.scripts/oimap
 #$exe xset r rate 300 30
@@ -375,3 +375,4 @@ $exe keyboard_settings
 # Debounce the space bar (any key really) on the Svive mech board.
 #$exe xkbset bouncekeys 40
 $exe pasystray
+$exe openrgb -p ~/.config/OpenRGB/kontroll.orp
